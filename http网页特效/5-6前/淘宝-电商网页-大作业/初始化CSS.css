@@ -1,0 +1,58 @@
+    /* ///////////////  初始化 ////////////////////// */
+    /* 清除格式 */
+    
+    .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+    
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    /* 背景色 */
+    
+    li {
+        list-style: none;
+        display: inline-block;
+    }
+    
+    body {
+        background-color: rgba(0, 0, 0, .3);
+    }
+    /* 修改超链接原有格式 */
+    
+    a {
+        text-decoration: none;
+        color: rgba(0, 0, 0, .7);
+    }
+    
+    a:hover {
+        background-color: pink;
+        color: white;
+    }
+    /* 居中 */
+    /* 浮动负面效果清除 */
+    
+    .clearfix::before,
+    .clearfix::after {
+        content: "";
+        display: table;
+    }
+    
+    .clearfix::after {
+        clear: both;
+    }
+    
+    .clearfix {
+        *zoom: 1;
+    }
+    /* 左右两侧留白 */
+    
+    .cen {
+        margin: 0 auto;
+        width: 1370px;
+    }

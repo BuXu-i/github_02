@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 100px;
+        }
+        
+        .box {
+            width: 450px;
+            height: 50px;
+            margin: 100px auto;
+        }
+        
+        .box .fbox {
+            width: 24%;
+            height: 100%;
+            /* border: 2px solid #000; */
+            float: left;
+            margin: 0 0 0 0px;
+            position: relative;
+            transition: all .8s;
+            transform-style: preserve-3d;
+        }
+        
+        .box .fbox .a,
+        .box .fbox .b {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .box .fbox .a {
+            background-color: red;
+            transform-origin: 100% 100% 0;
+            transform: rotateX(-90deg);
+        }
+        
+        .box .fbox .b {
+            background-color: hotpink;
+            backface-visibility: hidden;
+            z-index: 1;
+        }
+        
+        .box .fbox:hover {
+            /* transform-origin: 50% 0 0; */
+            transform-origin: 0 100% 0;
+            transform: rotateX(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="fbox">
+            <div class="a">水仙花</div>
+            <div class="b">猪头</div>
+        </div>
+        <div class="fbox">
+            <div class="a">丁香花 </div>
+            <div class="b">猫咪</div>
+        </div>
+        <div class="fbox">
+            <div class="a">小米椒</div>
+            <div class="b">不好吃</div>
+        </div>
+        <div class="fbox">
+            <div class="a">水天一色</div>
+            <div class="b">美不胜收</div>
+        </div>
+
+    </div>
+</body>
+
+</html>

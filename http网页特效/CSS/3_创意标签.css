@@ -1,0 +1,105 @@
+html {
+    background-color: #8A2BE2;
+}
+
+ul {
+    width: 1000px;
+    height: 600px;
+    margin: 200px auto;
+}
+
+.naberu ul li {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    display: inline-block;
+    border-bottom-left-radius: 48%;
+    border-bottom-right-radius: 48%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    vertical-align: top;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+/* 透明的反光层 */
+
+.naberu ul li .hidden {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    transform: translate(-35%, -35%) rotate(45deg);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.naberu ul li .tubiao {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 96px;
+    height: 96px;
+    /* border: 1px red solid; */
+    background-color: #8A2BE2;
+    border-radius: 0 0 50% 50%;
+    box-shadow: 0 6px 0 rgba(93, 94, 94, 0.25), inset 0 -6px 0 #fff;
+    padding-bottom: 5px;
+    z-index: 3;
+}
+
+.naberu ul li .tubiao::before {
+    width: 50px;
+    height: 50px;
+    margin-left: -50%;
+    content: "";
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 0 100% 0 0;
+    box-shadow: 35px 0 0 #8A2BE2, 0 -35px 0 #8A2BE2;
+}
+
+.naberu ul li .tubiao::after {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -50%;
+    content: "";
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 100% 0 0 0;
+    box-shadow: 0 -35px 0 #8A2BE2, -35px 0 0 #8A2BE2;
+}
+
+
+/* 伪元素只能前后各添加一个 */
+
+.naberu ul li:nth-child(1) {
+    background-color: #FF00FF;
+    background: linear-gradient(to top left, #FF00FF, #4169E1);
+    box-shadow: 0 10px #fff, inset 0 -10px rgba(132, 133, 133, 0.25);
+}
+
+.naberu ul li:nth-child(2) {
+    background: linear-gradient(to top left, #FFD700, #FF1493);
+    box-shadow: 0 10px #fff, inset 0 -10px rgba(132, 133, 133, 0.25);
+}
+
+.naberu ul li:nth-child(3) {
+    background: linear-gradient(to top left, #00FF7F, #4169E1);
+    box-shadow: 0 10px #fff, inset 0 -10px rgba(132, 133, 133, 0.25);
+}
+
+.naberu ul li p {
+    font: 500 16px '小濑字体 SC', '宋站';
+    text-align: center;
+}
+
+.naberu ul li .tubiao svg {
+    position: absolute;
+    font-size: 76px;
+    z-index: 1;
+    left: 5px;
+    top: 3px;
+}

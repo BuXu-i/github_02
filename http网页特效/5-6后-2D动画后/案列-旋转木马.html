@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 300px;
+            position: relative;
+        }
+        
+        @keyframes mov {
+            0% {}
+            100% {
+                transform: rotate3d(0, 1, 0, 360deg);
+            }
+        }
+        
+        .frist {
+            animation: mov 10s linear infinite;
+            transform-style: preserve-3d;
+            margin: 500px auto;
+            background-image: url("C:/\Users/\wuwangni/\Pictures/\喵斯快跑/\interlude_11.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .second {
+            position: absolute;
+            background-image: url("C:/\Users/\wuwangni/\Pictures/\喵斯快跑/\interlude_11.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+        
+        .a1 {
+            transform: rotate3d(0, 1, 0, 0deg) translate3d(0, 0, 200px);
+        }
+        
+        .a2 {
+            transform: rotate3d(0, 1, 0, 60deg)translate3d(0, 0, 200px);
+        }
+        
+        .a3 {
+            transform: rotate3d(0, 1, 0, 120deg) translate3d(0, 0, 200px);
+        }
+        
+        .a4 {
+            transform: rotate3d(0, 1, 0, 180deg)translate3d(0, 0, 200px);
+        }
+        
+        .a4 {
+            transform: rotate3d(0, 1, 0, 240deg) translate3d(0, 0, 200px);
+        }
+        
+        .a5 {
+            transform: rotate3d(0, 1, 0, 300deg) translate3d(0, 0, 200px);
+        }
+        
+        .a6 {
+            transform: rotate3d(0, 1, 0, 360deg) translate3d(0, 0, -200px);
+        }
+        
+        .frist:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frist">
+        <div class="second a1"></div>
+        <div class="second a2"></div>
+        <div class="second a3"></div>
+        <div class="second a4"></div>
+        <div class="second a5"></div>
+        <div class="second a6"></div>
+    </div>
+
+</body>
+
+</html>

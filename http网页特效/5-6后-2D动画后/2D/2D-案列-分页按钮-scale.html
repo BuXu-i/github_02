@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+        
+        div {
+            width: 100px;
+        }
+        
+        ul {
+            /* display: inline-block; */
+            margin: 100px auto;
+            width: 310px;
+            height: 55px;
+            /* background-color: #000; */
+            /* display: inline-block; */
+        }
+        
+        ul li {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid red;
+            background-color: beige;
+            float: left;
+            margin: 0 5px;
+            text-align: center;
+            font: 600 30px '宋体';
+            /* 单行文字的垂直居中 */
+            line-height: 49px;
+            /* 更改鼠标样式 */
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        ul li:hover {
+            transform: scale(1.2);
+            background-color: red;
+            /* font: 600 35px '微软雅黑'; */
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><span>1</span></li>
+        <li><span>2</span></li>
+        <li><span>3</span></li>
+        <li><span>4</span></li>
+        <li><span>5</span></li>
+    </ul>
+</body>
+
+</html>
