@@ -10,6 +10,7 @@ import {
     outLongin, //退出登录
 } from "@/request/api/login.js";
 export const modelueLogin = {
+    namespaced: true,
     state: {},
     actions: {
         //二维码登录  得到key   再调用接口 生成  二维码
@@ -23,9 +24,6 @@ export const modelueLogin = {
             console.log(qr2);
             return { qrurl: qr2.data.data.qrimg, key }; //返回数据给调用调用者
         },
-        //
-        //
-        //
         //二维码登录  得到二维码
         async Vxgetloginqr_2(context, key) {
             console.log("得到二维码");
@@ -67,9 +65,20 @@ export const modelueLogin = {
             let qr = await getloginphonecaptcha(phoneCaptcha);
             return qr;
         },
-        //获取登录状态
+        //获取登录状态时 会直接将获取的用户信息 有id 存储到store/user 中
         async storeGetLonginStatus(context) {
-            let qr = await getLonginStatus();
+            //此处调用
+            console.log("获取登录状态 此处是longin");
+            var qr = await getLonginStatus();
+            // pushUserinfo 上传用户信息的函数
+            console.log("得到的数据 存储到user");
+            await context.commit(
+                // 第一个参数为方法名，第二个为传的值，第三个root值为true
+                "modelueInfouser/pushUserinfo",
+                { qr: qr.data.data.account },
+                { root: true }
+            );
+
             return qr;
         },
         //退出登录

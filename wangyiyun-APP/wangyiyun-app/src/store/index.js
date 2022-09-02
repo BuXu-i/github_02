@@ -32,12 +32,18 @@ export default createStore({
         alltime: 0, //总时间
         intertime: null, //定时器
         audio: null, //播放器
-        islogin: false, //判断是否登录 0 未登录 1 登录 2 游客
+        islogin: 0, //判断是否登录 0: 未登录 1: 登录 2: 游客
         isloginShow: false, //登录弹窗
         looklist: true, //播放队列展示
     },
     getters: {}, //类似计算属性 返回变异后的属性
     mutations: {
+        //修改登录状态 根据传参修改 登录状态
+        updateIslogin(state, coun) {
+            console.log("登录状态被改变");
+            console.log(coun);
+            state.islogin = coun;
+        },
         //播放队列展示
         islooklist(state) {
             console.log("更改队列展示");

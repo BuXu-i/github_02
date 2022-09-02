@@ -92,10 +92,13 @@ export default {
                     console.log("我是分界线");
                     console.log(_this.Bool.message);
                     /////////  还需要存储  id 返回的个人信息最好都存储一下吧
-                    document.cookie = this.Bool.cookie; //存储cookie
+                    _this.settoken(_this.Bool.cookie); //只会返回一个cookie
                     ////////查询登录状态
                     console.log("查询登录状态");
-                    _this.infologin();
+                    // 上传个人信息到store中   // _this.infologin(); //查询后会返回个人信息
+                    _this.pushUserinfo(_this.infologin()); //会修改登录状态
+                    //退回本应该回到的路由
+                    _this.$router.go(-1);
                     clearInterval(_this.timer);
                 } else if ($store.state.isloginShow) {
                     clearInterval(_this.timer);
@@ -116,24 +119,34 @@ export default {
         //查询登录状态
         async infologin() {
             let qr = await this.storeGetLonginStatus(); //获取登录状态
-            console.log("我是登录状态 打印查询状态");
+            console.log(
+                "我是登录状态 打印查询状态 需要查看是否能正确得到 用户信息 包括id"
+            );
             console.log(qr);
+            return { qr: qr.data.data.account };
         },
         ...mapMutations(["updataLoginShow"]),
-        ...mapActions([
+        ...mapActions("modelueLogin", [
+            //"modelueLogin", 加上路径会出错  未找出原因
             "Vxgetloginqr_1", //生成二维码
             "Vxgetloginqr_3", //查询登录状态
             "Vxgetanonimous", //游客登陆 无名氏登录
             "storeGetLonginStatus", // //获取登录状态
-        ]),
+        ]), //login
         //       路径    设置token   删除token
-        ...mapMutations("modelueToken", ["settoken", "removeToken"]),
+        ...mapMutations("modelueToken", ["settoken", "removeToken"]), //utils
+        //用户数据store保存  路径             用户信息   这里是上传用户信息
+        ...mapMutations("modelueInfouser", ["pushUserinfo"]), //user
     },
     async mounted() {
         console.log("调用接口1");
         this.qr = await this.Vxgetloginqr_1();
         console.log("接受到？");
-        console.log(this.qr);
+        console.log(typeof this.qr);
+        if (typeof this.qr == "undefined") {
+            console.log("为空 请刷新页面");
+            return;
+        }
         this.Vxgetloginqr();
     },
     beforeUnmount() {
